@@ -14,7 +14,17 @@ class AddProject extends Component {
 
   handleSubmit(e){
     e.preventDefault();
-    console.log(this.refs.title.value);
+    if(this.refs.title.value === '') {
+      alert('Title is required...');
+    } else {
+      console.log(this.refs.title.value);
+      this.setState({newPropject: {
+        title: this.refs.title.value,
+        category: this.refs.category.value
+      }}, function(){
+        console.log(this.state);
+      });
+    }
   }
 
   render() {
