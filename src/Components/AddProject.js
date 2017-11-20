@@ -4,7 +4,7 @@ class AddProject extends Component {
   constructor() {
     super()
     this.state = {
-      newPropject: {}
+      newProject: {}
     }
   }
 
@@ -18,11 +18,12 @@ class AddProject extends Component {
       alert('Title is required...');
     } else {
       console.log(this.refs.title.value);
-      this.setState({newPropject: {
+      this.setState({newProject: {
         title: this.refs.title.value,
         category: this.refs.category.value
       }}, function(){
         console.log(this.state);
+        this.props.addProject(this.state.newProject);
       });
     }
   }
